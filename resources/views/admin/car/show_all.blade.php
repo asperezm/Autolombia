@@ -2,7 +2,7 @@
 @section("title", 'Show all')
 @section('content')
 <div style="background-color:#6c757d; text-align: center; padding: 10px 0">
-    <h3 style="color: white">Listado de autos</h3>
+    <h3 style="color: white">{{__('app.show_all_cars')}}</h3>
     <a class="btn btn-info btn-xs" href="{{ route('admin.car.create') }}"> 
         <i class="fas fa-plus" style="font-size:20px; margin:0 5px 0 0"></i>
         <h4 class="d-inline"> {{ __('app.create') }} </h4>

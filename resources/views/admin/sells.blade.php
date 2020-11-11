@@ -29,18 +29,18 @@
                         </div>
                         <div class="col-lg-2 mb-5 mb-lg-0 float-right" style="float:right">
                             <a class="btn btn-danger btn-xs" href="{{ route('admin.sells.delete', $car->getId()) }}"> 
-                                <h4 class="d-inline"> Eliminar </h4>
+                                <h4 class="d-inline">{{__('app.delete')}}</h4>
                             </a>
                         </div>
                         <div class="col-lg-3 mb-5 mb-lg-0 float-right" style="float:right">
-                            <h5>{{ 'Order ID: ' . $car->getId() }}</h5>
+                            <h5>{{  __('app.user') . ' ID: ' . $car->getId() }}</h5>
                             @foreach ($data['orders'] as $order)
                                 @if ($order->getId() == $car->getId())
-                                    <h6>{{ 'Customer ID: ' . $order->getUserId() }}</h5>  
+                                    <h6>{{ __('app.user') . ' ID: ' . $order->getUserId() }}</h5>  
 
                                     @foreach ($data['users'] as $user)
                                         @if ($order->getUserId() == $user->getId())
-                                        <p style="margin-left: 0em;padding: 0 0em 3em   "><h6>{{ 'Customer name: ' }}</h5>  </p>
+                                        <p style="margin-left: 0em;padding: 0 0em 3em   "><h6>{{  __('app.client_name') . ' ' }}</h5>  </p>
                                             {{ $user->getName() }} 
                                    
                                         @endif

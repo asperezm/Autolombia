@@ -77,6 +77,8 @@ return [
 
     'show_all_cars' => 'All cars',
     'show_car' => 'Car id',
+    'show_all_auctions' => 'All auctions',
+    'show_auction' => 'Auction id',
 
     'question' => 'Enter a question',
     'answer' => 'Enter an answer',
@@ -86,9 +88,28 @@ return [
     'questions_delete' => 'Delete question',
     'answers_title' => 'Answers',
 
+    'client' => 'Customer',
+    'client_name' => 'Customer name',
+    'order' => 'Order',
+    'order_details' => 'Order details',
+    'payment' => 'Payment',
+    'your_credit' => 'Your credit',
+    'balance' => 'Balance',
+    'not_enough' => 'Not enough',
+    'success_buy' => 'Congratulations, you just bought yourself a car!!',
+    'download_pdf' => 'Download PDF-Bill',
+    'download_html' => 'Download HTML-Bill',
+
     /** Información del display de autos */
     'currency' => 'Select your currency',
     'miles' => 'miles',
+
+    'highest_bid' => 'Highest bid',
+    'to' => 'to',
+    'bid_msg' => 'Be the first bidder!',
+    'phbid' => 'Enter bid value',
+    'user' => 'User',
+    'email' => 'Email',
 
     /** Información de botones */
     'buy' => 'Buy',
@@ -101,5 +122,7 @@ return [
     'create' => 'Create',
     'save' => 'Save',
     'cancel' => 'Cancel',
+    'bid' => 'Bid',
+    'confirm' => 'Confirm',
     
 ];

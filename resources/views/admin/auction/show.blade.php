@@ -1,101 +1,49 @@
 @extends('layouts.admin_master')
 @section("title", 'Show')
 @section('content')
+<div style="background-color:#6c757d; text-align: center; padding: 10px 0">
+    <h3 style="color: white">{{ __('app.show_auction') . ' ' . $data['auction']->getId() }}</h3>
+    <a class="btn btn-info btn-xs" href="{{ route('admin.auction.edit', $data['auction']->getId()) }}"> 
+        <h4 class="d-inline"> {{ __('app.edit') }} </h4>
+        <i class="fas fa-edit" style="font-size:20px; margin:auto"></i>
+    </a>
+</div>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8 padding-admin">
-            <div class="card">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col">
-                            Auction id: {{ $data["auction"]->getId() }}
-                        </div>
-                        <div class="col">
-                            <form method="POST" action="{{ route('admin.auction.delete', $data['auction']->getId()) }}">
-                                <input type="submit" class="btn btn-danger float-right" value="Delete">
-                                @method('delete')
-                                @csrf
-                            </form>
-
-                            <a class="btn btn-info btn-xs float-right"
-                                href="{{ route('admin.auction.edit', $data['auction']->getId()) }}"> Update </a>
-                        </div>
-                    </div>
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h3 class="card-title"> {{  'ID: ' . ' ' . $data['auction']->getId() }} </h3>
+                    <h3 class="card-title"> {{  $data['auction']->car->getBrand() . ' ' . $data['auction']->car->getModel() }} </h3>
                 </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col"><b>Reserve price: </b></div>
-                        <div class="col"> {{ $data["auction"]->getReservePrice() }} </div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><b>Beginning date: </b></div>
-                        <div class="col"> {{ $data["auction"]->getBeginning() }} </div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><b>Ending date: </b></div>
-                        <div class="col"> {{ $data["auction"]->getEnding() }} </div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><b>State: </b></div>
-                        <div class="col">
-                            @if($data["auction"]->getState())
-                            Active
-                            @else
-                            Inactive
-                            @endif
-                        </div>
-                    </div>
-
-                    <!-- Car information -->
-                    <div class="card auction-car-info">
-                        <div class="card-header">
-                            Car information
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col"><b>Id: </b></div>
-                                <div class="col"> {{ $data["auction"]->car->getId() }} </div>
-                            </div>
-                            <div class="row">
-                                <div class="col"><b>Brand: </b></div>
-                                <div class="col"> {{ $data["auction"]->car->getBrand() }} </div>
-                            </div>
-                            <div class="row">
-                                <div class="col"><b>Model: </b></div>
-                                <div class="col"> {{ $data["auction"]->car->getModel() }} </div>
-                            </div>
-                            <div class="row">
-                                <div class="col"><b>Color: </b></div>
-                                <div class="col"> {{ $data["auction"]->car->getColor() }} </div>
-                            </div>
-                            <div class="row">
-                                <div class="col"><b>Price: </b></div>
-                                <div class="col"> {{ $data["auction"]->car->getPrice() }} </div>
-                            </div>
-                            <div class="row">
-                                <div class="col"><b>Mileage: </b></div>
-                                <div class="col"> {{ $data["auction"]->car->getMileage() }} </div>
-                            </div>
-                            <div class="row">
-                                <div class="col"><b>License Plate: </b></div>
-                                <div class="col"> {{ $data["auction"]->car->getLicensePlate() }} </div>
-                            </div>
-                            <div class="row">
-                                <div class="col"><b>Description: </b></div>
-                                <div class="col"> {{ $data["auction"]->car->getDescription() }} </div>
-                            </div>
-                            <div class="row">
-                                <div class="col"><b>Availability: </b></div>
-                                <div class="col">
-                                    @if($data["auction"]->car->getAvailability())
-                                        Available
-                                    @else
-                                        Not Available
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-5">
+                    <div class="col">
+                        <form method="POST" action="{{ route('admin.auction.delete', $data['auction']->getId()) }}">
+                            <input type="submit" class="btn btn-danger float-right" value="{{ __('app.delete') }}">
+                            @method('delete')
+                            @csrf
+                        </form>
+                    </div> 
+                </div>
+                <hr style="width:95%">
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <img src="{{ asset('./storage/' . $data['auction']->car->getImagePath()) }}" 
+                    style="height: 100%; width: 100%; object-fit: contain;">
+                </div>
+                <div class="col-lg-5">
+                    <p class="card-body"> 
+                        @if($data["auction"]->getState())
+                            <b> {{ __('app.state') . ': ' . __('app.active')}} </b> <br/>
+                        @else
+                            <b> {{ __('app.state') . ': ' . __('app.inactive')}} </b> <br/>
+                        @endif
+                        <b> {{ __('app.reserve_price') . ': ' }} </b> {{ $data["auction"]->getReservePrice() }} <br/>
+                        <b> {{ __('app.beginning') . ': ' }} </b> {{ $data["auction"]->getBeginning() }} <br/>
+                        <b> {{ __('app.ending') . ': ' }} </b> {{ $data["auction"]->getEnding() }} <br/>
+                        <b> {{ __('app.car') . ': ' }} </b> {{ 'ID ' .  $data["auction"]->car->getId() }} <br/>
+                    </p>
                 </div>
             </div>
         </div>
