@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-7">
                     <i class="fas fa-clipboard-list" style="font-size:25px; float:left; margin: 0 10px 0 0"></i> 
-                    <h3 class="card-title"> Order details </h3>
+                    <h3 class="card-title">{{__('app.order_details')}}</h3>
                     
                    
                 </div>
@@ -34,25 +34,25 @@
                         
                         <div class="row">
                             
-                            <div class="col-lg-4"><b>Payment: </b></div>
+                            <div class="col-lg-4"><b>{{__('app.payment') . ':' }}</b></div>
                             <div class="col"><b> {{ $data['car']->getPrice() }} $</b></div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4"><b>Your credit: </b></div>
+                            <div class="col-lg-4"><b>{{__('app.your_credit') . ':' }}</b></div>
                              @if($data['user']->getCredit()-$data['car']->getPrice() >= 0)
                                 <div class="col color:green"><p style="color:green"<b> {{ $data['user']->getCredit() }} $</p></div>
                                 <div class="row">
                                     
                                 </div>
                              @else
-                                <div class="col color:red"><p style="color:red"<b>Insuficiente ({{ $data['user']->getCredit() }} $)</p></div>
+                                <div class="col color:red"><p style="color:red"<b> ({{ __('app.not_enough') . ' ' . $data['user']->getCredit() }} $)</p></div>
                              @endif
                              
                         </div>
                         <div class="row">
                             
                             @if($data['user']->getCredit()-$data['car']->getPrice() >= 0)
-                                <div class="col-lg-4"><b>Balance: </b></div>
+                                <div class="col-lg-4"><b>{{__('app.balance') . ':' }}</b></div>
                                 <div class="col color:green"><p style="color:green"<b> {{$data['user']->getCredit()-$data['car']->getPrice() }} $</p></div>
 
                             @else
@@ -68,10 +68,10 @@
                         <input type="hidden" name="id" value=" {{ $data['car']->getId() }}">
                         <input type="hidden" name="user_id" value=" {{ $data['user']->getId() }}">
                         <input type="hidden" name="total_price" value=" {{ $data['car']->getPrice() }}">
-                        <input type="submit" class="btn btn-success float-right" value="Confirm">
+                        <input type="submit" class="btn btn-success float-right" value="{{__('app.confirm')}}">
                     </form>
                     <div class="col-lg-10">
-                    <a class="btn btn-danger float-right" href="{{ route('order.cancel') }}"> Cancel </a>
+                    <a class="btn btn-danger float-right" href="{{ route('order.cancel') }}">{{__('app.cancel')}}</a>
                     </div>
                 </div>
                 

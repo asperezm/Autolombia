@@ -78,6 +78,8 @@ return [
 
     'show_all_cars' => 'Listado de autos',
     'show_car' => 'Auto con id',
+    'show_all_auctions' => 'Listado de subastas',
+    'show_auction' => 'Subasta con id',
 
     'question' => 'Ingresa una pregunta',
     'answer' => 'Ingresa una respuesta',
@@ -86,10 +88,30 @@ return [
     'questions_by' => ' por ',
     'questions_delete' => 'Borrar pregunta',
     'answers_title' => 'Respuestas',
+
+    'client' => 'Cliente',
+    'client_name' => 'Nombre del cliente',
+    'order' => 'Orden',
+    'order_details' => 'Detalles de la orden',
+    'payment' => 'Costo',
+    'your_credit' => 'Tu cartera',
+    'balance' => 'Saldo',
+    'not_enough' => 'Insuficiente',
+    'success_buy' => 'Felicidades, acabas de comprar un auto!!',
+    'download_pdf' => 'Descargar factura PDF',
+    'download_html' => 'Descargar factura HTML',
+
     
     /** Información del display de autos */
     'currency' => 'Selecciona tu divisa',
     'miles' => 'millas',
+
+    'highest_bid' => 'Puja más alta',
+    'to' => 'a',
+    'bid_msg' => 'Se el primero en pujar!',
+    'phbid' => 'Ingresa una puja',
+    'user' => 'Usuario',
+    'email' => 'Correo',
 
     /** Información de botones */
     'buy' => 'Comprar',
@@ -102,5 +124,7 @@ return [
     'create' => 'Crear',
     'save' => 'Guardar',
     'cancel' => 'Cancelar',
+    'bid' => 'Pujar',
+    'confirm' => 'Confirmar',
     
 ];

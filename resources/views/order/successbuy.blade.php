@@ -6,7 +6,7 @@
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
         
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Congratulations, you just bought yourself a car!!</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">{{ __('app.success_buy') }}</h2>
         
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
@@ -18,13 +18,13 @@
         <form class="link_mimic" form method="POST" action="{{ route('order.download', $data["id"])}}">
             @csrf
             <input type="hidden" name="boton"  value="PDF">
-            <input type="submit" class="btn btn-info float-right" value="Download PDF-Bill">
+            <input type="submit" class="btn btn-info float-right" value="{{ __('app.download_pdf') }}">
           </form> 
         <br> </br>
         <form class="link_mimic" form method="POST" action="{{ route('order.download', $data["id"])}}">
             @csrf
             <input type="hidden" name="boton"  value="HTML">
-            <input type="submit" class="btn btn-info float-right" value="Download HTML-Bill">
+            <input type="submit" class="btn btn-info float-right" value="{{ __('app.download_html') }}">
           </form> 
 
     </div>

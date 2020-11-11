@@ -1,14 +1,14 @@
 @extends('layouts.admin_master')
 @section("title", 'Edit')
 @section('content')
+<div style="background-color:#6c757d; text-align: center; padding: 10px 0">
+    <h3 style="color: white">{{ __('app.auction_edit_title') . ' ' . $data['auction']->getId() }}</h3>
+</div>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10 padding-admin">
+        <div class="col-md-11 mt-3 mb-5">
         @include('util.message')
             <div class="card">
-                <div class="card-header" style="text-align: center; background-color: #17a2b8; color:white;">
-                    <h4>{{ __('app.auction_edit_title') . ' ' . $data['auction']->getId() }}</h4>
-                </div>
                 <div class="card-body">
                     @if($errors->any())
                     <ul id="errors">

@@ -19,27 +19,25 @@
                                 </div>
 
                                 <div class="col-lg-8" style="float:left">
-                                    <h3 class="card-title"> {{ $auction->car->getBrand() . ' ' .
-                                        $auction->car->getModel() }} </h3>
+                                    <h3 class="card-title"> {{ $auction->car->getBrand() . ' ' . $auction->car->getModel() }} </h3>
                                     <h5> {{ $auction->car->getColor() }} </h5>
                                     @if($auction->bids->max('bid_value') == NULL)
-                                    <h4> Reserve price: {{ '$' . $auction->getReservePrice()}} </h4>
+                                        <h4>{{ __('app.reserve_price') . ' $' . $auction->getReservePrice()}} </h4>
                                     @else
-                                    <h4> Highest bid: {{ '$' . $auction->bids->max('bid_value') }} </h4>
+                                        <h4>{{ __('app.highest_bid') . ' $' . $auction->bids->max('bid_value') }} </h4>
                                     @endif
-                                    <p class="card-text"> {{ __( $auction->getBeginning() . " to " .
-                                        $auction->getEnding()) }} </p>
+                                    <p class="card-text"> {{ __( $auction->getBeginning() . ' ' . __('app.to') . ' ' . $auction->getEnding()) }} </p>
                                     <i class="fas fa-tachometer-alt"
                                         style="font-size:25px; float:left; margin: 0 10px 0 0"></i> {{
-                                    $auction->car->getMileage() . ' miles'}}
+                                    $auction->car->getMileage() . ' ' . __('app.miles')}}
                                 </div>
 
                                 <div class="col-lg-8" style="float:right">
 
                                     @if($auction->getState())
-                                    <p class="card-text" style="float:left">{{('Active')}} </p>
+                                    <h5 class="card-text" style="float:left; margin: 5px 0 0 0">{{__('app.active')}} </h5>
                                     @else
-                                    <p class="card-text" style="float:left"> {{('Inactive')}}</p>
+                                    <h5 class="card-text" style="float:left; margin: 5px 0 0 0"> {{__('app.inactive')}}</h5>
                                     @endif
 
                                 </div>
