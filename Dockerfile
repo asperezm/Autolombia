@@ -17,6 +17,8 @@ RUN php artisan migrate
 RUN composer dump-autoload
 RUN php artisan db:seed
 RUN php artisan storage:link
+RUN composer require barryvdh/laravel-dompdf
+RUN composer require phpoffice/phpword
 RUN chmod -R 777 storage
 RUN a2enmod rewrite
 RUN service apache2 restart
